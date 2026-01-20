@@ -34,11 +34,12 @@ def main() -> int:
     out_path=Path(args.output_json)
 
     if not in_path.exists():
-        raise FileNotFoundError(f"Input CSV not found: {in_path}"})
+        raise FileNotFoundError(f"Input CSV not found: {in_path}")
 
     summary = summarize_csv(in_path, unique_col=args.unique_col)
 
-    out_path.open("w", encoding="utf-8") as f:
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
 
     print(json.dumps(summary, ensure_ascii=False, indent=2))
@@ -47,6 +48,4 @@ def main() -> int:
 if __name__=="__name__":
     raise SystemExit(main())
 
-EOF
 
-chmod +x analyze_csv.py
