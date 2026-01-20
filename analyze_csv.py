@@ -23,11 +23,13 @@ def summarize_csv(csv_path: Path, unique_col: str | None = None) -> dict:
                 unique_col: df[unique_col].value_counts(dropna=True).head(5).to_dict()
         }
 
+    return summary
+
 def main() -> int:
-    parser = argparse.ArugmentParser(description="CSV summary -> JSON output")
-    parser.add_argment("--in", dest="input_csv", required=True, help="input CSV path")
-    parser.add_argment("--out", dest="output_json", required=True, help="output JSON path")
-    parser.add_argment("--unique-col", default=None, help="column name to count uniques")
+    parser = argparse.ArgumentParser(description="CSV summary -> JSON output")
+    parser.add_argument("--in", dest="input_csv", required=True, help="input CSV path")
+    parser.add_argument("--out", dest="output_json", required=True, help="output JSON path")
+    parser.add_argument("--unique-col",dest="unique_col", default=None, help="column name to count uniques")
     args=parser.parse_args()
 
     in_path=Path(args.input_csv)
@@ -39,13 +41,16 @@ def main() -> int:
     summary = summarize_csv(in_path, unique_col=args.unique_col)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    print("WRITE_TO:", out_path.resolve())
+
     with out_path.open("w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
 
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
 
-if __name__=="__name__":
+if __name__=="__main__":
     raise SystemExit(main())
 
 

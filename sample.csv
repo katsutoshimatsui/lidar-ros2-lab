@@ -1,5 +1,5 @@
 timestamp,device_id,range_m,quality
 2026-01-19T10:00:00Z,rplidarA1,3.2,15
 2026-01-19T10:00:01Z,rplidarA1,3.1,15
-2026-01-19T10:00:02Z,rplidarA1,3,,14
+2026-01-19T10:00:02Z,rplidarA1,,14
 2026-01-19T10:00:03Z,rplidarA1,3.3,

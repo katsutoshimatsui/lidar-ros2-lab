@@ -1,0 +1,26 @@
+{
+  "input_file": "sample.csv",
+  "rows": 4,
+  "cols": 4,
+  "columns": [
+    "timestamp",
+    "device_id",
+    "range_m",
+    "quality"
+  ],
+  "missing_values_total": 2,
+  "missing_by_column": {
+    "timestamp": 0,
+    "device_id": 0,
+    "range_m": 1,
+    "quality": 1
+  },
+  "unique_count": {
+    "device_id": 1
+  },
+  "top_values": {
+    "device_id": {
+      "rplidarA1": 4
+    }
+  }
+}
