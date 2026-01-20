@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .venv/
 __pycach__/
 *.pyc
@@ -6,3 +7,16 @@ __pycach__/
 .DS_Store
 *.log
 result.json
+=======
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Generated outputs
+*.json
+
+#OS/editor
+.DS_Store
+*.swp
+>>>>>>> 055329a (Add Day6 file I/O and Day7 pipeline scripts)
