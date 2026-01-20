@@ -5,3 +5,4 @@ __pycach__/
 *.pyd
 .DS_Store
 *.log
+result.json
